@@ -6,6 +6,7 @@ import static com.utility.ConfigManager.*;
 import org.testng.annotations.Test;
 
 import com.pojos.LoginDetails;
+import com.utility.ConfigManager2;
 
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
@@ -18,7 +19,7 @@ public class LoginApiTest{
 
 		LoginDetails payload = new LoginDetails("iamfd", "password");
 
-		given().baseUri(getProperty("BASE_URI")).contentType(ContentType.JSON).body(payload)
+		given().baseUri(ConfigManager2.getProperty("BASE_URI")).contentType(ContentType.JSON).body(payload)
 				.accept(ContentType.ANY).log().all().when().post("login").then().log().all().statusCode(200)
 				.body("message",equalTo("Success"))
 				.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("Schemas//loginResponseSchema.json"));
