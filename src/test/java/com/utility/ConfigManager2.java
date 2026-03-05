@@ -16,24 +16,16 @@ public class ConfigManager2 {
 
 	static {
 
-		env = System.getProperty("env");
+		env = System.getProperty("env", "qa");
 		switch (env.toLowerCase().trim()) {
 
-		case "dev": {
-			path = "com.properties" + File.separator + "config.dev.properties";
-			break;
-		}
-		case "qa": {
-			path = "com.properties" + File.separator + "config.qa.properties";
-			break;
-		}
-		case "prod": {
-			path = "com.properties" + File.separator + "config.prod.properties";
-			break;
-		}
-		default:
+		case "dev" -> path = "com.properties" + File.separator + "config.dev.properties";
 
-			path = "com.properties" + File.separator + "config.qa.properties.properties";
+		case "qa" -> path = "com.properties" + File.separator + "config.qa.properties";
+
+		case "prod" -> path = "com.properties" + File.separator + "config.prod.properties";
+
+		default -> path = "com.properties" + File.separator + "config.qa.properties.properties";
 
 		}
 		InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
