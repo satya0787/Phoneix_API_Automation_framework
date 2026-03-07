@@ -2,14 +2,14 @@ package com.restassured.demo;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
-import static com.utility.ConfigManager.*;
+
 import org.testng.annotations.Test;
 
-import com.pojos.LoginDetails;
-import com.utility.ConfigManager2;
 
-import io.restassured.http.ContentType;
+import com.utility.SpecUtility;
+
 import io.restassured.module.jsv.JsonSchemaValidator;
+import com.pojos.LoginDetails;
 
 public class LoginApiTest{
 	
@@ -19,8 +19,11 @@ public class LoginApiTest{
 
 		LoginDetails payload = new LoginDetails("iamfd", "password");
 
-		given().baseUri(ConfigManager2.getProperty("BASE_URI")).contentType(ContentType.JSON).body(payload)
-				.accept(ContentType.ANY).log().all().when().post("login").then().log().all().statusCode(200)
+		given()
+		.spec(SpecUtility.requestSpec(payload))
+		.when()
+		.post("login")
+		.then().spec(SpecUtility.responseSpec_OK()).statusCode(200)
 				.body("message",equalTo("Success"))
 				.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("Schemas//loginResponseSchema.json"));
 
