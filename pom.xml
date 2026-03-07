@@ -6,9 +6,6 @@
   <artifactId>Apiautomation</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  
-  
-  
   <properties>
   <maven.compiler.target>14</maven.compiler.target>
   <maven.compiler.source>14</maven.compiler.source>

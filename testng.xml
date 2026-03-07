@@ -7,7 +7,6 @@
     <classes>
     <class name="com.restassured.demo.UserDetailsTest" />
     <class name="com.restassured.demo.LoginApiTest"/>
-      
     </classes>
   </test>
 </suite>
