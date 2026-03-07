@@ -1,5 +1,5 @@
 
-name: Phoneix Api Automation with RestAssured
+name: Phoneix Api Automation with RestAssured Framework
 
 on:
   push:
