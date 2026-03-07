@@ -1,2 +1,45 @@
+# Maven / Java
 /target/
-/target-output/
+/test-output/
+/testng-results.xml
+/surefire-reports/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Compiled class files
+**/*.class
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS generated files
+Thumbs.db
+
+# Backup and local env
+*.bak
+.env
+
+# Others
+.gradle/
+
+# Keep excludes for nested project (AutomationFramework) build outputs
+/Users/satyakomera/Desktop/Framework/AutomationFramework/target/
+/Users/satyakomera/Desktop/Framework/AutomationFramework/test-output/
