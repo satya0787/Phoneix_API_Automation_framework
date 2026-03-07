@@ -33,6 +33,17 @@ public class SpecUtility {
 
 		return request;
 	}
+	
+public static RequestSpecification requestSpecwithAuthAndText(Roles role) {
+
+		
+		RequestSpecification request = new RequestSpecBuilder().setBaseUri(ConfigManager2.getProperty("BASE_URI"))
+				.addHeader("Authorization",DynamicTokenGenerator.getToken(role))
+				.setContentType(ContentType.TEXT).setAccept(ContentType.ANY).log(LogDetail.METHOD).log(LogDetail.BODY)
+				.build();
+
+		return request;
+	}
 
 	
 
