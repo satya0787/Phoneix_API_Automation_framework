@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.restassured.demo.UserDetailsTest">
+      <class name="com.restassured.demo.CreateJobApiTest">
         <methods>
-          <include name="UserDetailsApi"/>
+          <include name="CreateJobAPitest"/>
         </methods>
-      </class> <!-- com.restassured.demo.UserDetailsTest -->
+      </class> <!-- com.restassured.demo.CreateJobApiTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

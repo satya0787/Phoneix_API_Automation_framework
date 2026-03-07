@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-07T16:32:22 IST" name="Default suite" finished-at="2026-03-07T16:32:23 IST" duration-ms="979">
+  <suite started-at="2026-03-07T18:06:36 IST" name="Default suite" finished-at="2026-03-07T18:06:37 IST" duration-ms="855">
     <groups>
     </groups>
-    <test started-at="2026-03-07T16:32:22 IST" name="Default test" finished-at="2026-03-07T16:32:23 IST" duration-ms="979">
-      <class name="com.restassured.demo.MasterApiTest">
-        <test-method signature="MasterAPitest()[pri:0, instance:com.restassured.demo.MasterApiTest@3a93b025]" started-at="2026-03-07T16:32:22 IST" name="MasterAPitest" finished-at="2026-03-07T16:32:23 IST" duration-ms="968" status="PASS">
+    <test started-at="2026-03-07T18:06:36 IST" name="Default test" finished-at="2026-03-07T18:06:37 IST" duration-ms="855">
+      <class name="com.restassured.demo.CreateJobApiTest">
+        <test-method signature="CreateJobAPitest()[pri:0, instance:com.restassured.demo.CreateJobApiTest@3a93b025]" started-at="2026-03-07T18:06:36 IST" name="CreateJobAPitest" finished-at="2026-03-07T18:06:37 IST" duration-ms="843" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- MasterAPitest -->
-      </class> <!-- com.restassured.demo.MasterApiTest -->
+        </test-method> <!-- CreateJobAPitest -->
+      </class> <!-- com.restassured.demo.CreateJobApiTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
