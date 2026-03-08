@@ -1,5 +1,11 @@
 package com.restassured.demo;
 
+import static io.restassured.RestAssured.given;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.hamcrest.Matchers.*;
 import org.testng.annotations.Test;
 
 import com.constants.Roles;
@@ -8,39 +14,33 @@ import com.pojos.Customer;
 import com.pojos.CustomerAddress;
 import com.pojos.CustomerProduct;
 import com.pojos.Problems;
-import com.utility.ConfigManager2;
-import com.utility.DynamicTokenGenerator;
+
 import com.utility.SpecUtility;
 
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-
-import static io.restassured.RestAssured.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import io.restassured.module.jsv.JsonSchemaValidator;
 
 public class CreateJobApiTest {
 
 	@Test
 	public void CreateJobAPitest() {
 
-		Customer customer = new Customer("Raj", "kom", "9946471242", "", "test123@test.com");
+		Customer customer = new Customer("Raj", "kom", "9946471242", "", "test123@test.com", "");
 		CustomerAddress custadrs = new CustomerAddress("304", "Jupiter", "MG road", "Bangur Nagar", "Goregaon West",
-				"411039", "india", "telegana");
-		CustomerProduct product = new CustomerProduct("2025-04-06T18:30:00.000Z", "13506113358841", "13506113358841",
-				"13506113358841", "2025-04-06T18:30:00.000Z", 1, 1);
+				"500055", "india", "telegana");
+		CustomerProduct product = new CustomerProduct("2025-04-08T18:30:00.000Z", "16506113358046", "16506113358046",
+				"16506113358046", "2025-04-08T18:30:00.000Z", 1, 1);
 
-		Problems problems = new Problems(0, "displayissue");
-		Problems[] problemArray = new Problems[1];
+		Problems problems = new Problems(1, "displayissue");
+		List<Problems> problemArray = new ArrayList<>();
 
-		problemArray[0] = problems;
+		problemArray.add(problems);
 		CreateJobDeatils payload = new CreateJobDeatils(0, 2, 1, 1, customer, custadrs, product, problemArray);
 
-		Response response = given().spec(SpecUtility.requestSpecwithAuth(Roles.FD, payload))
-				.log().all().when().post("/job/create").then().extract().response();
-
-		System.out.println(response.asPrettyString());
+		given().spec(SpecUtility.requestSpecwithAuth(Roles.FD, payload)).log().all().when().post("/job/create").then()
+				.spec(SpecUtility.responseSpec_OK())
+				.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("Schemas//CreateJobResponse.json"))
+				.body("message", equalTo("Job created successfully. ")).body("data.mst_platform_id", equalTo(2))
+				.body("data.job_number", startsWith("JOB_"));
 
 	}
 

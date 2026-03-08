@@ -2,30 +2,31 @@ package com.pojos;
 
 public class Problems {
 
-	public Problems(int id, String remark) {
-		super();
-		this.id = id;
-		this.remark = remark;
-	}
+    private int id;
+    private String remark;
 
-	private int id;
-	private String remark;
+    public Problems() {
+    }
 
-	// Added getters and setters so Jackson can serialize/deserialize this POJO
-	public int getId() {
-		return id;
-	}
+    public Problems(int id, String remark) {
+        this.id = id;
+        this.remark = remark;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
 }
