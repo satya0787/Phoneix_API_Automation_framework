@@ -5,11 +5,10 @@ import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.annotations.Test;
 
-
+import com.api.request.model.LoginDetails;
 import com.utility.SpecUtility;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
-import com.pojos.LoginDetails;
 
 public class LoginApiTest{
 	
