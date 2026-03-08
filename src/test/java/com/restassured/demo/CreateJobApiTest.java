@@ -27,14 +27,14 @@ public class CreateJobApiTest {
 		Customer customer = new Customer("Raj", "kom", "9946471242", "", "test123@test.com", "");
 		CustomerAddress custadrs = new CustomerAddress("304", "Jupiter", "MG road", "Bangur Nagar", "Goregaon West",
 				"500055", "india", "telegana");
-		CustomerProduct product = new CustomerProduct("2025-04-08T18:30:00.000Z", "16506113358046", "16506113358046",
-				"16506113358046", "2025-04-08T18:30:00.000Z", 1, 1);
+		CustomerProduct product = new CustomerProduct("2025-04-08T18:30:00.000Z", "18606113358046", "18606113358046",
+				"18606113358046", "2025-04-08T18:30:00.000Z", 1, 1);
 
-		Problems problems = new Problems(1, "displayissue");
-		List<Problems> problemArray = new ArrayList<>();
+		Problems problem = new Problems(1, "displayissue");
+		List<Problems> problems = new ArrayList<Problems>();
 
-		problemArray.add(problems);
-		CreateJobDeatils payload = new CreateJobDeatils(0, 2, 1, 1, customer, custadrs, product, problemArray);
+		problems.add(problem);
+		CreateJobDeatils payload = new CreateJobDeatils(0, 2, 1, 1, customer, custadrs, product, problems);
 
 		given().spec(SpecUtility.requestSpecwithAuth(Roles.FD, payload)).log().all().when().post("/job/create").then()
 				.spec(SpecUtility.responseSpec_OK())

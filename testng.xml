@@ -7,7 +7,8 @@
     <classes>
     <class name="com.restassured.demo.UserDetailsTest" />
     <class name="com.restassured.demo.LoginApiTest"/>
-    <class name="com.restassured.demo.UpdateUserTest" />
+    <class name="com.restassured.demo.MasterApiTest" />
+    <class name="com.restassured.demo.CreateJobApiTest" />
     
     </classes>
   </test>
