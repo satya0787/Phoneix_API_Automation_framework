@@ -1,65 +1,77 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.restassuredframework</groupId>
-  <artifactId>Apiautomation</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  <properties>
-  <maven.compiler.target>16</maven.compiler.target>
-  <maven.compiler.source>16</maven.compiler.source>
-  </properties>
-  
- <build>
- 
-   <plugins>
-    
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.5.5</version>
-        <configuration>
-          <suiteXmlFiles>
-            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-          </suiteXmlFiles>
-        </configuration>
-      </plugin>
-    
-</plugins>
- </build>
-  
-  <dependencies>
-		<!-- Source: https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
-<dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>rest-assured</artifactId>
-    <version>5.5.6</version>
-</dependency>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.restassuredframework</groupId>
+	<artifactId>Apiautomation</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 
-<!-- Source: https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-<!-- Source: https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.21.1</version>
-    <scope>compile</scope>
-</dependency>
+	<properties>
+		<maven.compiler.target>16</maven.compiler.target>
+		<maven.compiler.source>16</maven.compiler.source>
+	</properties>
 
-		<!-- Source: https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
-<dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>json-schema-validator</artifactId>
-    <version>6.0.0</version>
-    <scope>compile</scope>
-</dependency>
+	<build>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.5.5</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- Source:
+		https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>5.5.6</version>
+		</dependency>
+
+		<!-- Source:
+		https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<!-- Source:
+		https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.21.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Source:
+		https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>6.0.0</version>
+			<scope>compile</scope>
+		</dependency>
 		<!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
-<dependency>
-    <groupId>org.testng</groupId>
-    <artifactId>testng</artifactId>
-    <version>7.12.0</version>
-    <scope>test</scope>
-</dependency>
-  </dependencies>
-  
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.12.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Source: https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.12.0</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
 </project>

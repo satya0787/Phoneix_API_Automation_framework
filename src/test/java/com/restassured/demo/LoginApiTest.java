@@ -13,13 +13,12 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 public class LoginApiTest{
 	
 	
-    @Test
-	public static void LoginTest() {
+    @Test(dataProvider = "LoginCSVDataProvider", dataProviderClass = com.dataProvider.LoginDataprovider.class)
+	public  void LoginTest(LoginDetails loginDetails) {
 
-		LoginDetails payload = new LoginDetails("iamfd", "password");
-
+	
 		given()
-		.spec(SpecUtility.requestSpec(payload))
+		.spec(SpecUtility.requestSpec(loginDetails))
 		.when()
 		.post("login")
 		.then().spec(SpecUtility.responseSpec_OK()).statusCode(200)

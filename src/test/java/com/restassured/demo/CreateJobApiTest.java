@@ -13,6 +13,7 @@ import com.api.request.model.Customer;
 import com.api.request.model.CustomerAddress;
 import com.api.request.model.CustomerProduct;
 import com.api.request.model.Problems;
+import com.constants.Product;
 import com.constants.Roles;
 import com.utility.DateTimeUtil;
 import com.utility.SpecUtility;
@@ -28,7 +29,7 @@ public class CreateJobApiTest {
 		CustomerAddress custadrs = new CustomerAddress("304", "Jupiter", "MG road", "Bangur Nagar", "Goregaon West",
 				"500055", "india", "telegana");
 		CustomerProduct product = new CustomerProduct(DateTimeUtil.getTimewithdaysAgo(10), "19606113358046",
-				"19606113358046", "19606113358046", DateTimeUtil.getTimewithdaysAgo(10), 1, 1);
+				"19606113358046", "19606113358046", DateTimeUtil.getTimewithdaysAgo(10), Product.NEXUS_2.getCode(), 1);
 
 		Problems problem = new Problems(1, "displayissue");
 		List<Problems> problems = new ArrayList<Problems>();
