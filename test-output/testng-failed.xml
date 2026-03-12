@@ -5,7 +5,7 @@
     <classes>
       <class name="com.restassured.demo.LoginApiTest">
         <methods>
-          <include name="LoginTest" invocation-numbers="0 1"/>
+          <include name="LoginTest"/>
         </methods>
       </class> <!-- com.restassured.demo.LoginApiTest -->
     </classes>
