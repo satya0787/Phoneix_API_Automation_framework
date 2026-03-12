@@ -1,21 +1,13 @@
 package com.restassured.demo;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.startsWith;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.hamcrest.Matchers.*;
 import org.testng.annotations.Test;
 
-import com.api.request.model.CreateJobDeatils;
-import com.api.request.model.Customer;
-import com.api.request.model.CustomerAddress;
-import com.api.request.model.CustomerProduct;
-import com.api.request.model.Problems;
-import com.constants.Product;
 import com.constants.Roles;
-import com.utility.DateTimeUtil;
+import com.dataProvider.CreateJobPayload;
 import com.utility.SpecUtility;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
@@ -25,20 +17,8 @@ public class CreateJobApiTest {
 	@Test
 	public void CreateJobAPitest() {
 
-		Customer customer = new Customer("Raj", "kom", "9946471242", "", "test123@test.com", "");
-		CustomerAddress custadrs = new CustomerAddress("304", "Jupiter", "MG road", "Bangur Nagar", "Goregaon West",
-				"500055", "india", "telegana");
-		CustomerProduct product = new CustomerProduct(DateTimeUtil.getTimewithdaysAgo(10), "19606113358046",
-				"19606113358046", "19606113358046", DateTimeUtil.getTimewithdaysAgo(10), Product.NEXUS_2.getCode(), 1);
-
-		Problems problem = new Problems(1, "displayissue");
-		List<Problems> problems = new ArrayList<Problems>();
-
-		problems.add(problem);
-		CreateJobDeatils payload = new CreateJobDeatils(0, 2, 1, 1, customer, custadrs, product, problems);
-
-		given().spec(SpecUtility.requestSpecwithAuth(Roles.FD, payload)).log().all().when().post("/job/create").then()
-				.spec(SpecUtility.responseSpec_OK())
+		given().spec(SpecUtility.requestSpecwithAuth(Roles.FD, CreateJobPayload.generatepayload())).log().all().when()
+				.post("/job/create").then().spec(SpecUtility.responseSpec_OK())
 				.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("Schemas//CreateJobResponse.json"))
 				.body("message", equalTo("Job created successfully. ")).body("data.mst_platform_id", equalTo(2))
 				.body("data.job_number", startsWith("JOB_"));
