@@ -1,24 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-15T13:29:09 IST" name="Default suite" finished-at="2026-03-15T13:29:09 IST" duration-ms="883">
+  <suite started-at="2026-03-15T17:48:05 IST" name="Default suite" finished-at="2026-03-15T17:48:06 IST" duration-ms="891">
     <groups>
     </groups>
-    <test started-at="2026-03-15T13:29:09 IST" name="Default test" finished-at="2026-03-15T13:29:09 IST" duration-ms="883">
-      <class name="com.api.dataDriven.tests.LoginApiDataDrivenTest">
-        <test-method signature="LoginTest(com.dataproviders.api.bean.UserBean)[pri:0, instance:com.api.dataDriven.tests.LoginApiDataDrivenTest@223191a6]" started-at="2026-03-15T13:29:09 IST" name="LoginTest" data-provider="LoginApiCSVDataProvider" finished-at="2026-03-15T13:29:09 IST" duration-ms="832" status="PASS">
+    <test started-at="2026-03-15T17:48:05 IST" name="Default test" finished-at="2026-03-15T17:48:06 IST" duration-ms="891">
+      <class name="com.api.dataDriven.tests.CreateJobApiTest">
+        <test-method signature="CreateJobAPitest(com.api.request.model.CreateJobDeatils)[pri:0, instance:com.api.dataDriven.tests.CreateJobApiTest@2b662a77]" started-at="2026-03-15T17:48:06 IST" name="CreateJobAPitest" description="Creatinng job" data-provider="CreatejobApiCSVDataProvider" finished-at="2026-03-15T17:48:06 IST" duration-ms="832" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[com.dataproviders.api.bean.UserBean@54422e18]]>
+                <![CDATA[CreateJobDeatils[mst_service_location_id=0, mst_platform_id=2, mst_warrenty_status_id=1, mst_oem_id=1, customer=Customer[first_name=Gabriel, last_name=Doyle, mobile_number=694-358-1115, mobile_number_alt=, email_id=Lacey_Graham47@gmail.com, email_id_alt=], customer_address=CustomerAddress[flat_number=c 304, apartment_name=Jupiter, street_name=Bangur Nagar, landmark=MG road, area=Goregaon West, pincode=411039, country=Maharashtra, state=India], customer_product=CustomerProduct[dop=2025-04-06T18:30:00.000Z, serial_number=18701554192750, imei1=18701554192750, imei2=18701554192750, popurl=2025-04-06T18:30:00.000Z, product_id=1, mst_model_id=1], problems=[Problems[id=1, remark=Battery Issue]]]]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[1 expectation failed.
+Expected status code <200> but was <500>.
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: 1 expectation failed.
+Expected status code <200> but was <500>.
+
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
+at io.restassured.internal.ResponseSpecificationImpl.validate(ResponseSpecificationImpl.groovy:101)
+at io.restassured.internal.ValidatableResponseOptionsImpl.spec(ValidatableResponseOptionsImpl.java:288)
+at com.api.dataDriven.tests.CreateJobApiTest.CreateJobAPitest(CreateJobApiTest.java:23)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LoginTest -->
-      </class> <!-- com.api.dataDriven.tests.LoginApiDataDrivenTest -->
+        </test-method> <!-- CreateJobAPitest -->
+      </class> <!-- com.api.dataDriven.tests.CreateJobApiTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
