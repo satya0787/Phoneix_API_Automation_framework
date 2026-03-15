@@ -13,7 +13,7 @@ public class DataProvidersutil {
 	@DataProvider(name = "LoginApiCSVDataProvider")
 	public static Iterator<UserBean> loginDataProvider() {
 
-		return CsvReaderUtil.loadcsv("testdata//LoginDetails.csv");
+		return CsvReaderUtil.loadCSV("testdata//LoginDetails.csv",UserBean.class);
 	}
 
 }
