@@ -2,16 +2,23 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-12T22:03:13 IST" name="Default suite" finished-at="2026-03-12T22:03:14 IST" duration-ms="1082">
+  <suite started-at="2026-03-15T13:29:09 IST" name="Default suite" finished-at="2026-03-15T13:29:09 IST" duration-ms="883">
     <groups>
     </groups>
-    <test started-at="2026-03-12T22:03:13 IST" name="Default test" finished-at="2026-03-12T22:03:14 IST" duration-ms="1082">
-      <class name="com.restassured.demo.CreateJobApiTest">
-        <test-method signature="CreateJobAPitest()[pri:0, instance:com.restassured.demo.CreateJobApiTest@7f0eb4b4]" started-at="2026-03-12T22:03:13 IST" name="CreateJobAPitest" finished-at="2026-03-12T22:03:14 IST" duration-ms="1071" status="PASS">
+    <test started-at="2026-03-15T13:29:09 IST" name="Default test" finished-at="2026-03-15T13:29:09 IST" duration-ms="883">
+      <class name="com.api.dataDriven.tests.LoginApiDataDrivenTest">
+        <test-method signature="LoginTest(com.dataproviders.api.bean.UserBean)[pri:0, instance:com.api.dataDriven.tests.LoginApiDataDrivenTest@223191a6]" started-at="2026-03-15T13:29:09 IST" name="LoginTest" data-provider="LoginApiCSVDataProvider" finished-at="2026-03-15T13:29:09 IST" duration-ms="832" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[com.dataproviders.api.bean.UserBean@54422e18]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateJobAPitest -->
-      </class> <!-- com.restassured.demo.CreateJobApiTest -->
+        </test-method> <!-- LoginTest -->
+      </class> <!-- com.api.dataDriven.tests.LoginApiDataDrivenTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
