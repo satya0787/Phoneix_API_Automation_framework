@@ -1,32 +1,29 @@
-package com.api.request.model;
+package com.dataproviders.api.bean;
 
-public class LoginDetails {
+import com.opencsv.bean.CsvBindByName;
 
+public class UserBean {
+	
+	@CsvBindByName(column = "username")
 	private String username;
+	@CsvBindByName(column = "password")
 	private String password;
-
-	// default constructor for Jackson
-	public LoginDetails() {
-	}
-
-	public LoginDetails(String username, String password) {
-		this.username = username;
-		this.password = password;
-	}
-
+	
+	
+	public UserBean() {};
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+
 }
