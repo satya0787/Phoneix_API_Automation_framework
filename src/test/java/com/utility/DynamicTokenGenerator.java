@@ -2,8 +2,8 @@ package com.utility;
 
 import static com.utility.ConfigManager2.getProperty;
 
+import com.api.request.model.LoginDetails;
 import com.constants.Roles;
-import com.pojos.LoginDetails;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

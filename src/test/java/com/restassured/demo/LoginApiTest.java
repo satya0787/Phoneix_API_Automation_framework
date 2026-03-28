@@ -5,26 +5,18 @@ import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.annotations.Test;
 
-
+import com.api.request.model.LoginDetails;
 import com.utility.SpecUtility;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
-import com.pojos.LoginDetails;
 
-public class LoginApiTest{
-	
-	
-    @Test
-	public static void LoginTest() {
+public class LoginApiTest {
 
-		LoginDetails payload = new LoginDetails("iamfd", "password");
+	@Test(dataProvider = "LoginCSVDataProvider", dataProviderClass = com.dataProvider.LoginDataprovider.class)
+	public void LoginTest(LoginDetails loginDetails) {
 
-		given()
-		.spec(SpecUtility.requestSpec(payload))
-		.when()
-		.post("login")
-		.then().spec(SpecUtility.responseSpec_OK()).statusCode(200)
-				.body("message",equalTo("Success"))
+		given().spec(SpecUtility.requestSpec(loginDetails)).when().post("login").then()
+				.spec(SpecUtility.responseSpec_OK()).statusCode(200).body("message", equalTo("Success"))
 				.body(JsonSchemaValidator.matchesJsonSchemaInClasspath("Schemas//loginResponseSchema.json"));
 
 	}
