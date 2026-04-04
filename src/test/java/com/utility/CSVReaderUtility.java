@@ -25,6 +25,10 @@ public class CSVReaderUtility {
 		File csvfile = new File(System.getProperty("user.dir") + "//src//test//resources//LoginDetails.csv");
 		try {
 			FileReader fr = new FileReader(csvfile);
+			
+			
+
+			
 			CSVReader csvreader = new CSVReader(fr);
 			
 			loginData = new ArrayList<>();

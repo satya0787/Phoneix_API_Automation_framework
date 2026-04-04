@@ -2,6 +2,7 @@ package com.utility;
 
 import org.hamcrest.Matchers;
 
+import com.api.filters.SensitiveFilter;
 import com.constants.Roles;
 
 import io.restassured.builder.RequestSpecBuilder;
@@ -16,60 +17,43 @@ public class SpecUtility {
 	public static RequestSpecification requestSpec(Object payload) {
 
 		RequestSpecification request = new RequestSpecBuilder().setBaseUri(ConfigManager2.getProperty("BASE_URI"))
-				.setContentType(ContentType.JSON).setAccept(ContentType.ANY).setBody(payload).log(LogDetail.METHOD).log(LogDetail.BODY)
-				.build();
+				.addFilter(new SensitiveFilter()).setContentType(ContentType.JSON).setAccept(ContentType.ANY)
+				.setBody(payload).log(LogDetail.METHOD).build();
 
 		return request;
 	}
-	
-	
+
 	public static RequestSpecification requestSpecwithAuth(Roles role) {
 
-		
 		RequestSpecification request = new RequestSpecBuilder().setBaseUri(ConfigManager2.getProperty("BASE_URI"))
-				.addHeader("Authorization",DynamicTokenGenerator.getToken(role))
-				.setContentType(ContentType.JSON).setAccept(ContentType.ANY).log(LogDetail.METHOD).log(LogDetail.BODY)
-				.build();
-
-		return request;
-	}
-	
-public static RequestSpecification requestSpecwithAuth(Roles role,Object payload) {
-
-		
-		RequestSpecification request = new RequestSpecBuilder().setBaseUri(ConfigManager2.getProperty("BASE_URI"))
-				.addHeader("Authorization",DynamicTokenGenerator.getToken(role))
-				.setContentType(ContentType.JSON).setAccept(ContentType.ANY)
-				.setBody(payload).log(LogDetail.METHOD).log(LogDetail.BODY)
-				.build();
-
-		return request;
-	}
-	
-public static RequestSpecification requestSpecwithAuthAndText(Roles role) {
-
-		
-		RequestSpecification request = new RequestSpecBuilder().setBaseUri(ConfigManager2.getProperty("BASE_URI"))
-				.addHeader("Authorization",DynamicTokenGenerator.getToken(role))
-				.setContentType(ContentType.TEXT).setAccept(ContentType.ANY).log(LogDetail.METHOD).log(LogDetail.BODY)
-				.build();
+				.addHeader("Authorization", DynamicTokenGenerator.getToken(role)).setContentType(ContentType.JSON)
+				.setAccept(ContentType.ANY).log(LogDetail.METHOD).log(LogDetail.BODY).build();
 
 		return request;
 	}
 
-	
+	public static RequestSpecification requestSpecwithAuth(Roles role, Object payload) {
 
-	
-	
-	
-	
+		RequestSpecification request = new RequestSpecBuilder().setBaseUri(ConfigManager2.getProperty("BASE_URI"))
+				.addHeader("Authorization", DynamicTokenGenerator.getToken(role)).setContentType(ContentType.JSON)
+				.setAccept(ContentType.ANY).setBody(payload).log(LogDetail.METHOD).log(LogDetail.BODY).build();
+
+		return request;
+	}
+
+	public static RequestSpecification requestSpecwithAuthAndText(Roles role) {
+
+		RequestSpecification request = new RequestSpecBuilder().setBaseUri(ConfigManager2.getProperty("BASE_URI"))
+				.addHeader("Authorization", DynamicTokenGenerator.getToken(role)).setContentType(ContentType.TEXT)
+				.setAccept(ContentType.ANY).log(LogDetail.METHOD).log(LogDetail.BODY).build();
+
+		return request;
+	}
+
 	public static ResponseSpecification responseSpec_OK() {
-	ResponseSpecification response =	new ResponseSpecBuilder().expectContentType(ContentType.JSON)
-		    .expectResponseTime(Matchers.lessThan(1000l))
-		    .expectStatusCode(200)
-		    .log(LogDetail.ALL)
-		    .build();
-	return response;
+		ResponseSpecification response = new ResponseSpecBuilder().expectContentType(ContentType.JSON)
+				.expectResponseTime(Matchers.lessThan(1000l)).expectStatusCode(200).log(LogDetail.ALL).build();
+		return response;
 	}
 
 }
